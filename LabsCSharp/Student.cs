@@ -34,7 +34,10 @@ namespace Lab1
         /// </summary>
         public OrientationType Orientation { get; set; }
 
-        public Student Partner { get; set; }
+        /// <summary>
+        /// Партнер студента
+        /// </summary>
+        public Student Partner { get; private set; }
 
         public static void MarryTwoStudents(Student firstStudent, Student secondStudent)
         {

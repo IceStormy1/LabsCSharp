@@ -41,7 +41,7 @@ namespace Lab1
                 IsMarried = false,
                 Orientation = OrientationType.Hetero
             };
-
+            
             Student.MarryTwoStudents(firstStudent, secondStudent);
 
             #endregion
