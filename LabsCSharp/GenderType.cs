@@ -1,4 +1,4 @@
-﻿namespace Lab1
+﻿namespace LabsCSharp.Lab1
 {
     public enum GenderType
     {

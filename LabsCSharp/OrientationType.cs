@@ -1,4 +1,4 @@
-﻿namespace Lab1
+﻿namespace LabsCSharp.Lab1
 {
     /// <summary>
     /// Показывается, какая ориентация у человека

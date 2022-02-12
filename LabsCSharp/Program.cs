@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Lab1
+namespace LabsCSharp.Lab1
 {
     class Program
     {
