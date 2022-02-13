@@ -18,6 +18,9 @@ namespace LabsCSharp.Lab1
 
             Console.WriteLine($"a = {a.Real} + {a.Imag}i");
             Console.WriteLine($"b = {b.Real} + {b.Imag}i");
+
+            Console.WriteLine(a.Divide(b));
+            Console.WriteLine(a.Multiply(b));
             #endregion
 
             #region Ex2

@@ -6,10 +6,11 @@ namespace LabsCSharp.Lab2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Лабораторная работа 1");
+            Console.WriteLine("Лабораторная работа 2");
             Console.WriteLine("Выполнил - Толмачев Михаил Евгеньевич ВИС-32\n");
 
             #region Ex1
+
             var firstRectangle = new Rectangle()
             {
                 Height = 20,
@@ -27,6 +28,7 @@ namespace LabsCSharp.Lab2
             Console.WriteLine($"Area {firstRectangle.Name}: {firstRectangle.GetArea()}");
             Console.WriteLine($"Area {secondtRectangle.Name}: {secondtRectangle.GetArea()}");
             Console.WriteLine();
+
             #endregion
 
             var circle = new Circle
@@ -46,7 +48,7 @@ namespace LabsCSharp.Lab2
             {
                 A = 10
             };
-           PrintArea(regularDecagon);
+            PrintArea(regularDecagon);
 
             var regularPentagon = new RegularPentagon
             {
@@ -77,9 +79,7 @@ namespace LabsCSharp.Lab2
             PrintArea(trapezouid);
         }
 
-        private static void PrintArea<T>(T figure) where T : class, IFigure 
-        {
-            Console.WriteLine($"The area {typeof(T).Name} is equal {figure.GetArea()}");
-        }
+        private static void PrintArea<TFigure>(TFigure figure) where TFigure : class, IFigure 
+            => Console.WriteLine($"The area {typeof(TFigure).Name} is equal {figure.GetArea()}");
     }
 }

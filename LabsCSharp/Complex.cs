@@ -1,4 +1,6 @@
-﻿namespace LabsCSharp.Lab1
+﻿using System;
+
+namespace LabsCSharp.Lab1
 {
     public class Complex
     {
@@ -17,16 +19,15 @@
             Imag -= x.Imag;
         }
 
-        public void Multiply(Complex x)
+        public string Divide(Complex x)
         {
-            Real *= x.Real;
-            Imag *= x.Imag;
+            return
+                $"{(Real * x.Real + Imag * x.Imag) / (Math.Pow(x.Imag, 2) + Math.Pow(x.Real, 2))} + {(x.Real * Imag - Real * x.Imag) / (Math.Pow(x.Imag, 2) + Math.Pow(x.Real, 2))}i";
         }
 
-        public void Divide(Complex x)
+        public string Multiply(Complex x)
         {
-            Real /= x.Real;
-            Imag /= x.Imag;
+            return $"{Real * x.Real - Imag * x.Imag} + ({Real * x.Imag + Imag * x.Real})i";
         }
     }
 }
