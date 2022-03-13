@@ -7,15 +7,10 @@ namespace LabsCSharp.Laba3
         public double FirstDiagonal { get; set; }
         public double SecondDiagonal { get; set; }
 
-        public override double GetArea()
-        {
-            return FirstDiagonal + SecondDiagonal * 0.5;
-        }
-
-        public override Point GetCenter()
-        {
-            return new Point((int)(Position.X + FirstDiagonal / 2), (int)(Position.Y + SecondDiagonal / 2));
-        }
+        public override double GetArea() => FirstDiagonal + SecondDiagonal * 0.5;
+        
+        public override Point GetCenter() => new Point((int)(Position.X + FirstDiagonal / 2), (int)(Position.Y + SecondDiagonal / 2));
+        
 
         public override void Draw(Graphics graphics)
         {
@@ -27,7 +22,7 @@ namespace LabsCSharp.Laba3
             points[3] = new Point(Position.X + ((int)SecondDiagonal / 2), Position.Y + (int)FirstDiagonal);
 
             graphics.DrawPolygon(new Pen(Color), points);
-            graphics.DrawString(GetCenter().ToString(), new Font("Arial", 9), Brushes.Black, GetCenter());
+            graphics.DrawString(GetArea().ToString(), new Font("Arial", 9), Brushes.Black, GetCenter());
         }
     }
 }

@@ -8,7 +8,7 @@ namespace LabsCSharp.Laba3
     {
         public static Figure[] figures =
         {
-            new Rectangle()
+            new Rectangle
             {
                 Name = "Квадрат 1",
                 Color = Color.DarkRed,
@@ -16,14 +16,14 @@ namespace LabsCSharp.Laba3
                 Width = 50,
                 Height = 50
             },
-             new Circle()
+             new Circle
             {
                 Name = "Круг",
                 Color = Color.Crimson,
                 Position = new Point(70, 200),
                 Radius = 50
             },
-             new Triangle()
+             new Triangle
             {
                 Name = "Треугольник",
                 Color = Color.Crimson,
@@ -31,7 +31,7 @@ namespace LabsCSharp.Laba3
                 Height = 50,
                 Base = 50
             },
-            new Rhombus()
+            new Rhombus
             {
                 Name = "Ромб",
                 Color = Color.Crimson,
@@ -39,14 +39,14 @@ namespace LabsCSharp.Laba3
                 FirstDiagonal = 50,
                 SecondDiagonal = 40
             },
-            new Square()
+            new Square
             {
                 Name = "Квадрат",
                 Color = Color.Crimson,
                 Position = new Point (300, 100),
                 Side = 50
             },
-            new Parallelogram()
+            new Parallelogram
             {
                 Name = "Параллелограмм",
                 Color = Color.Crimson,
@@ -54,7 +54,7 @@ namespace LabsCSharp.Laba3
                 Base = 50,
                 Height = 50
             },
-            new RegularPentagon()
+            new RegularPentagon
             {
                 Name = "Правильный пятиугольник",
                 Color = Color.Crimson,
@@ -62,7 +62,7 @@ namespace LabsCSharp.Laba3
                 Side = 50,
                 Radius = 50
             },
-            new RegularDecagon()
+            new RegularDecagon
             {
                 Name = "Правильный десятиугольник",
                 Color = Color.Crimson,
@@ -70,7 +70,7 @@ namespace LabsCSharp.Laba3
                 Side = 50,
                 Radius = 50
             },
-            new Trapezoid()
+            new Trapezoid
             {
                 Name = "Трапеция",
                 Color = Color.Crimson,

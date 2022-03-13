@@ -8,15 +8,9 @@ namespace LabsCSharp.Laba3
         public double SecondBase { get; set; }
         public double Height { get; set; }
 
-        public override double GetArea()
-        {
-            return (FirstBase + SecondBase) * 0.5 * Height;
-        }
+        public override double GetArea() => (FirstBase + SecondBase) * 0.5 * Height;
 
-        public override Point GetCenter()
-        {
-            return new Point((int)(Position.X + FirstBase / 2), (int)(Position.Y + Height / 2));
-        }
+        public override Point GetCenter() => new Point((int)(Position.X + FirstBase / 2), (int)(Position.Y + Height / 2));
 
         public override void Draw(Graphics graphics)
         {
@@ -28,7 +22,7 @@ namespace LabsCSharp.Laba3
             points[0] = new Point(Position.X + +(int)FirstBase, Position.Y + 0);
 
             graphics.DrawPolygon(new Pen(Color), points);
-            graphics.DrawString(GetCenter().ToString(), new Font("Arial", 9), Brushes.Black, GetCenter());
+            graphics.DrawString(GetArea().ToString(), new Font("Arial", 9), Brushes.Black, GetCenter());
         }
     }
 }

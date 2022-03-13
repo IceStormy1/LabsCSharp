@@ -8,16 +8,9 @@ namespace LabsCSharp.Laba3
         public double Side { get; set; }
         public double Radius { get; set; }
 
+        public override double GetArea() => Side * Side / 4 * Math.Sqrt(25 + 10 * Math.Sqrt(5));
 
-        public override double GetArea()
-        {
-            return Side * Side / 4 * Math.Sqrt(25 + 10 * Math.Sqrt(5));
-        }
-
-        public override Point GetCenter()
-        {
-            return new Point(Position.X, Position.Y);
-        }
+        public override Point GetCenter() => new Point(Position.X, Position.Y);
 
         public override void Draw(Graphics graphics)
         {
@@ -31,7 +24,7 @@ namespace LabsCSharp.Laba3
             }
 
             graphics.DrawPolygon(new Pen(Color), points);
-            graphics.DrawString(GetCenter().ToString(), new Font("Arial", 9), Brushes.Black, GetCenter());
+            graphics.DrawString(GetArea().ToString(), new Font("Arial", 9), Brushes.Black, GetCenter());
         }
     }
 }
