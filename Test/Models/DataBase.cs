@@ -1,19 +1,21 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using LabsCSharp.Laba4.Models;
+using JetBrains.Annotations;
 using Supabase;
 
-namespace LabsCSharp.Laba4
+namespace Test.Models
 {
     public class DataBase : INotifyPropertyChanged
     {
-        private const string Url = "https://xtmtvukbgjrzvuccrosq.supabase.co";
-        private const string Key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh0bXR2dWtiZ2pyenZ1Y2Nyb3NxIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY0NTI4NDQ4MiwiZXhwIjoxOTYwODYwNDgyfQ.0y-GQLb59IPkXEzWjcMldTbUCwnDbXIv4OUU6ZHKsMA";
+        private const string Url = "url";
+        private const string Key = "key";
 
         public List<User> Users { get; set; } = new();
         public List<HistoryChat> HistoryChats { get; set; } = new();
+        public List<GeneralChatModel> GeneralModels { get; set; } = new();
 
         private Client Client { get; }
 
@@ -28,7 +30,8 @@ namespace LabsCSharp.Laba4
             Client = Client.Instance;
 
             // И подписываемся на события изменения в базе данных
-            Client.From<User>().On(Client.ChannelEventType.All, (o, args) => LoadAllData());
+            Client.From<User>().On(Client.ChannelEventType.All, async (o, args) => await LoadUserData());
+            Client.From<HistoryChat>().On(Client.ChannelEventType.All, async (o, args) => await LoadHistoryChatData());
         }
 
         public async void LoadAllData()
@@ -53,12 +56,11 @@ namespace LabsCSharp.Laba4
             OnPropertyChanged(nameof(HistoryChats));
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) 
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        
     }
 }

@@ -1,7 +1,9 @@
 ﻿using System;
 using Avalonia;
+using Avalonia.Controls;
+using Avalonia.Controls.ApplicationLifetimes;
 
-namespace LabsCSharp.Laba4
+namespace Test
 {
     class Program
     {

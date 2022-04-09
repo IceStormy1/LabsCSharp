@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabsCSharp.Laba3", "LabsCSh
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LabsCSharp.Laba4", "LabsCSarp.Laba4\LabsCSharp.Laba4.csproj", "{2A223D7F-519E-4F54-BBA7-3C69E89BE558}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{043115C7-4B92-4896-9E2B-FAC7F5E2F1A8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "Test\Test.csproj", "{A8DDB1F6-398D-4632-A020-A8F19F9484C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,9 +37,16 @@ Global
 		{2A223D7F-519E-4F54-BBA7-3C69E89BE558}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A223D7F-519E-4F54-BBA7-3C69E89BE558}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A223D7F-519E-4F54-BBA7-3C69E89BE558}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8DDB1F6-398D-4632-A020-A8F19F9484C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8DDB1F6-398D-4632-A020-A8F19F9484C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8DDB1F6-398D-4632-A020-A8F19F9484C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8DDB1F6-398D-4632-A020-A8F19F9484C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A8DDB1F6-398D-4632-A020-A8F19F9484C8} = {043115C7-4B92-4896-9E2B-FAC7F5E2F1A8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {35079396-7C6F-4BC4-A40D-D8E0C5B0D4AB}

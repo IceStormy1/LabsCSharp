@@ -20,14 +20,9 @@ namespace LabsCSharp.Lab1
         }
 
         public string Divide(Complex x)
-        {
-            return
-                $"{(Real * x.Real + Imag * x.Imag) / (Math.Pow(x.Imag, 2) + Math.Pow(x.Real, 2))} + {(x.Real * Imag - Real * x.Imag) / (Math.Pow(x.Imag, 2) + Math.Pow(x.Real, 2))}i";
-        }
+            => $"{(Real * x.Real + Imag * x.Imag) / (Math.Pow(x.Imag, 2) + Math.Pow(x.Real, 2))} + {(x.Real * Imag - Real * x.Imag) / (Math.Pow(x.Imag, 2) + Math.Pow(x.Real, 2))}i";
 
-        public string Multiply(Complex x)
-        {
-            return $"{Real * x.Real - Imag * x.Imag} + ({Real * x.Imag + Imag * x.Real})i";
-        }
+        public string Multiply(Complex x) => $"{Real * x.Real - Imag * x.Imag} + ({Real * x.Imag + Imag * x.Real})i";
+        
     }
 }
