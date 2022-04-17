@@ -2,39 +2,70 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="950"
         x:Class="Test.MainWindow"
         Title="Беседа ВИС-32"
-        Width="200" Height="300"
+        Width="800" Height="500"
         WindowStartupLocation="CenterScreen">
     <Design.DataContext>Models.HistoryChat</Design.DataContext>
-    <DockPanel Margin="20">
-        <Button
-            DockPanel.Dock="Bottom"
-            HorizontalAlignment="Center"
-            Click="ButtonOnClick">
-            Загрузить данные
-        </Button>
-        <ItemsControl Items="{Binding  HistoryChats}" >
-            <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock
-                                Foreground="red"
-                                Margin="5"
-                                Text="{Binding Text}"/>
-                            <TextBlock
-                                Foreground="green"
-                                Margin="5"
-                                Text="{Binding Login}" />
-                            <TextBlock
-                                Foreground="blue"
-                                Margin="5"
-                                Text="{Binding Age}" />
-                        </StackPanel>
-                    </DataTemplate>
-            </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        <ItemsControl></ItemsControl>
-    </DockPanel>
+
+	<DockPanel Margin="20">
+		<Grid ColumnDefinitions="Auto" RowDefinitions="Auto,Auto,Auto"  Margin="4">
+			<Grid ColumnDefinitions="Auto, Auto, Auto" RowDefinitions="Auto,Auto,Auto"  Margin="4" Grid.Row="0">
+				<ItemsControl Items="{Binding Path=HistoryChats}" Grid.Row="0">
+					<ItemsControl.ItemTemplate>
+						<DataTemplate>
+							<StackPanel Orientation="Horizontal">
+                                <TextBlock
+                                    Foreground="Red"
+                                    FontWeight ="500"
+                                    Margin="5"
+                                    FontFamily="Montserrat"
+                                    Text="{Binding User.Login}" />
+                                <TextBlock>:</TextBlock>
+								<TextBlock
+									Foreground="Red"
+									FontWeight ="500"
+									Margin="5"
+									FontFamily="Montserrat"
+									Text="{Binding Text}" />
+								<TextBlock
+									Foreground="#969696"
+									Margin="0, 0, 5,24"
+									Text="{Binding SendingTime}"
+									FontFamily="Montserrat"
+									FontSize ="8" />
+                            </StackPanel>
+						</DataTemplate>
+					</ItemsControl.ItemTemplate>
+				</ItemsControl>
+			</Grid>
+
+			<Grid ColumnDefinitions="120,400,108" RowDefinitions="Auto,Auto,Auto"  Margin="4" Grid.Row="1">
+				<TextBox Height="32" Width="100"
+						AcceptsReturn="True"
+						TextWrapping="Wrap"
+						Grid.Row="1"
+						Grid.Column="0"
+						Name="NameTextBox"
+						 FontFamily="Montserrat"
+			/>
+				<TextBox Height="32" Width="400"
+						 AcceptsReturn="True"
+						 TextWrapping="Wrap"
+						 Grid.Row="1"
+						 Grid.Column="1"
+						 Name="MessageTextBox"
+						 FontFamily="Montserrat"
+			/>
+
+				<Button HorizontalAlignment="Right" Margin="10, 30,0,30"
+						DockPanel.Dock="Bottom"
+						FontFamily="Montserrat"
+						Grid.Row="1" Grid.Column="2" Click="ButtonOnClick">
+					Отправить
+				</Button>
+			</Grid>
+		</Grid>
+	</DockPanel>
 </Window>

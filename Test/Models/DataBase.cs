@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
+using Postgrest.Responses;
 using Supabase;
 
 namespace Test.Models
@@ -13,11 +14,11 @@ namespace Test.Models
         private const string Url = "url";
         private const string Key = "key";
 
-        public List<User> Users { get; set; } = new();
-        public List<HistoryChat> HistoryChats { get; set; } = new();
-        public List<GeneralChatModel> GeneralModels { get; set; } = new();
+        public List<User> Users { get; set; }
+        public List<HistoryChat> HistoryChats { get; set; } 
+        public List<GeneralChatModel> GeneralModels { get; set; } 
 
-        private Client Client { get; }
+        public Client Client { get; }
 
         public DataBase()
         {
@@ -28,19 +29,17 @@ namespace Test.Models
             });
 
             Client = Client.Instance;
-
-            // И подписываемся на события изменения в базе данных
-            Client.From<User>().On(Client.ChannelEventType.All, async (o, args) => await LoadUserData());
-            Client.From<HistoryChat>().On(Client.ChannelEventType.All, async (o, args) => await LoadHistoryChatData());
+            LoadUserData();
+            LoadHistoryChatData();
+        
+            Client.From<User>().On(Client.ChannelEventType.All, (o, args) => LoadUserData());
+            Client.From<HistoryChat>().On(Client.ChannelEventType.All, (o, args) => LoadHistoryChatData());
         }
 
-        public async void LoadAllData()
-        {
-            await LoadUserData();
-            await LoadHistoryChatData();
-        }
+        public User? GetUserByLogin(string login) 
+            => Users.FirstOrDefault(x => x.Login.Equals(login));
 
-        private async Task LoadUserData()
+        private async void LoadUserData()
         {
             var data = await Client.From<User>().Get();
             Users = data.Models;
@@ -48,10 +47,15 @@ namespace Test.Models
             OnPropertyChanged(nameof(Users));
         }
 
-        private async Task LoadHistoryChatData()
+        private async void LoadHistoryChatData()
         {
             var data = await Client.From<HistoryChat>().Get();
             HistoryChats = data.Models;
+
+            foreach (var history in HistoryChats)
+            {
+                history.User = Users.FirstOrDefault(x => x.Id == history.UserId);
+            }
 
             OnPropertyChanged(nameof(HistoryChats));
         }
@@ -61,6 +65,5 @@ namespace Test.Models
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) 
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        
     }
 }

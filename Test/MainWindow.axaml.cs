@@ -1,7 +1,11 @@
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Test.Models;
+using Client = Supabase.Client;
 
 namespace Test
 {
@@ -17,10 +21,30 @@ namespace Test
             AvaloniaXamlLoader.Load(this);
         }
 
-        private void ButtonOnClick(object? sender, RoutedEventArgs e)
+        private async void ButtonOnClick(object? sender, RoutedEventArgs e)
         {
-            var database = DataContext as DataBase;
-            database?.LoadAllData();
+            if (DataContext is not DataBase database)
+                throw new Exception();
+
+            var message = this.FindControl<TextBox>("MessageTextBox");
+            var login = this.FindControl<TextBox>("NameTextBox").Text;
+
+            var user = database.GetUserByLogin(login);
+
+            if (user == null)
+                throw new Exception();
+
+            var historyChat = Client.Instance.From<HistoryChat>();
+
+            await historyChat.Insert(new HistoryChat
+            {
+                Id = Guid.NewGuid(),
+                SendingTime = DateTime.Now,
+                Text = message.Text,
+                UserId = user.Id
+            });
+
+            message.Text = "";
         }
     }
 }
