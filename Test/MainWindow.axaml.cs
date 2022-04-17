@@ -34,9 +34,7 @@ namespace Test
             if (user == null)
                 throw new Exception();
 
-            var historyChat = Client.Instance.From<HistoryChat>();
-
-            await historyChat.Insert(new HistoryChat
+            await database.Client.From<HistoryChat>().Insert(new HistoryChat
             {
                 Id = Guid.NewGuid(),
                 SendingTime = DateTime.Now,
