@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
-using Test.Models;
+using Test.Entities;
 using Client = Supabase.Client;
 
 namespace Test
@@ -34,13 +34,14 @@ namespace Test
             if (user == null)
                 throw new Exception();
 
-            await database.Client.From<HistoryChat>().Insert(new HistoryChat
-            {
-                Id = Guid.NewGuid(),
-                SendingTime = DateTime.Now,
-                Text = message.Text,
-                UserId = user.Id
-            });
+            await database.Client.From<HistoryChat>().Insert(
+                new HistoryChat
+                {
+                    Id = Guid.NewGuid(),
+                    SendingTime = DateTime.Now,
+                    Text = message.Text,
+                    UserId = user.Id
+                });
 
             message.Text = "";
         }

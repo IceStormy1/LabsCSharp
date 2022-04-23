@@ -2,7 +2,7 @@
 using Postgrest.Attributes;
 using Supabase;
 
-namespace Test.Models
+namespace Test.Entities
 {
     [Table("Users")]
     public class User : SupabaseModel
@@ -10,19 +10,19 @@ namespace Test.Models
         /// <summary>
         /// Id пользователя
         /// </summary>
-        [PrimaryKey("Id", false)]
+        [PrimaryKey()]
         public Guid Id { get; set; }
 
         /// <summary>
         /// Логин пользователя
         /// </summary>
-        [Column("Login")]
+        [Column()]
         public string Login { get; set; }
 
         /// <summary>
         /// Дата создания пользователя
         /// </summary>
-        [Column("DateOfCreate")]
+        [Column()]
         public DateTime DateOfCreate { get; set; }
     }
 }

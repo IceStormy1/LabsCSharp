@@ -5,7 +5,7 @@
         mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="950"
         x:Class="Test.MainWindow"
         Title="Беседа ВИС-32"
-        Width="800" Height="500"
+        Width="800" Height="800"
         WindowStartupLocation="CenterScreen">
     <Design.DataContext>Models.HistoryChat</Design.DataContext>
 

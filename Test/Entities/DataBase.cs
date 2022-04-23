@@ -2,12 +2,10 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 using JetBrains.Annotations;
-using Postgrest.Responses;
 using Supabase;
 
-namespace Test.Models
+namespace Test.Entities
 {
     public class DataBase : INotifyPropertyChanged
     {
@@ -15,14 +13,13 @@ namespace Test.Models
         private const string Key = "key";
 
         public List<User> Users { get; set; }
-        public List<HistoryChat> HistoryChats { get; set; } 
-        public List<GeneralChatModel> GeneralModels { get; set; } 
+        public List<HistoryChat> HistoryChats { get; set; }
 
         public Client Client { get; }
 
         public DataBase()
         {
-            Client.InitializeAsync(Url, Key, new SupabaseOptions()
+            Client.InitializeAsync(Url, Key, new SupabaseOptions
             {
                 AutoConnectRealtime = true,
                 ShouldInitializeRealtime = true

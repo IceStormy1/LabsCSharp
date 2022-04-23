@@ -2,32 +2,32 @@
 using Postgrest.Attributes;
 using Supabase;
 
-namespace Test.Models
+namespace Test.Entities
 {
     /// <summary>
     /// Модель таблицы HistoryChat, где хранятся сообщения пользователей чата
     /// </summary>
     public class HistoryChat : SupabaseModel
     {
-        [PrimaryKey("Id", false)]
+        [PrimaryKey]
         public Guid Id { get; set; }
 
         /// <summary>
         /// Id пользователя
         /// </summary>
-        [Column("UserId")]
+        [Column]
         public Guid UserId { get; set; }
 
         /// <summary>
         /// Текст сообщения пользователя
         /// </summary>
-        [Column("Text")]
+        [Column]
         public string Text { get; set; }
 
         /// <summary>
         /// Время, когда пользователь отправил сообщение
         /// </summary>
-        [Column("SendingTime")]
+        [Column]
         public DateTime SendingTime { get; set; }
 
         /// <summary>
