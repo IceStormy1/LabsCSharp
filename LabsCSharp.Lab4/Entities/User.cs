@@ -2,7 +2,7 @@
 using Postgrest.Attributes;
 using Supabase;
 
-namespace LabsCharp.Laba4.Entities
+namespace LabsCharp.Lab4.Entities
 {
     [Table("Users")]
     public class User : SupabaseModel

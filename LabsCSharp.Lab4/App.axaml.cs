@@ -1,9 +1,9 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using LabsCharp.Laba4.Entities;
+using LabsCharp.Lab4.Entities;
 
-namespace Test
+namespace LabsCharp.Lab4
 {
     public partial class App : Application
     {

@@ -1,13 +1,10 @@
 using System;
-using System.Linq;
-using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
-using LabsCharp.Laba4.Entities;
-using Client = Supabase.Client;
+using LabsCharp.Lab4.Entities;
 
-namespace Test
+namespace LabsCharp.Lab4
 {
     public partial class MainWindow : Window
     {

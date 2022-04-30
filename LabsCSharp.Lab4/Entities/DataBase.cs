@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 using Supabase;
 
-namespace LabsCharp.Laba4.Entities
+namespace LabsCharp.Lab4.Entities
 {
     public class DataBase : INotifyPropertyChanged
     {
