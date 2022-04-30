@@ -5,12 +5,12 @@ using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 using Supabase;
 
-namespace Test.Entities
+namespace LabsCharp.Laba4.Entities
 {
     public class DataBase : INotifyPropertyChanged
     {
-        private const string Url = "url";
-        private const string Key = "key";
+        private const string Url = "https://xtmtvukbgjrzvuccrosq.supabase.co";
+        private const string Key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh0bXR2dWtiZ2pyenZ1Y2Nyb3NxIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NDUyODQ0ODIsImV4cCI6MTk2MDg2MDQ4Mn0._2idcedrEtvWjQzeiblKTUHNooD7gPOI81itt8_3DSI";
 
         public List<User> Users { get; set; }
         public List<HistoryChat> HistoryChats { get; set; }
@@ -26,6 +26,7 @@ namespace Test.Entities
             });
 
             Client = Client.Instance;
+
             LoadUserData();
             LoadHistoryChatData();
         

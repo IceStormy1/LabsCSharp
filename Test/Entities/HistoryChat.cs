@@ -2,7 +2,7 @@
 using Postgrest.Attributes;
 using Supabase;
 
-namespace Test.Entities
+namespace LabsCharp.Laba4.Entities
 {
     /// <summary>
     /// Модель таблицы HistoryChat, где хранятся сообщения пользователей чата

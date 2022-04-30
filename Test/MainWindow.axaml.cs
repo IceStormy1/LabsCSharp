@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
-using Test.Entities;
+using LabsCharp.Laba4.Entities;
 using Client = Supabase.Client;
 
 namespace Test

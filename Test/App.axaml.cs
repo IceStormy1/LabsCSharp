@@ -1,7 +1,7 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using Test.Entities;
+using LabsCharp.Laba4.Entities;
 
 namespace Test
 {
