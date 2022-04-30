@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Laba4", "Laba4", "{043115C7
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LabsCharp.Laba4", "Test\LabsCharp.Laba4.csproj", "{A8DDB1F6-398D-4632-A020-A8F19F9484C8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LabsCSharp.Laba5", "ConsoleApp1\LabsCSharp.Laba5.csproj", "{439EAEA3-722F-42F9-A6F3-94D792BE4505}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LabsCSharp.Laba6", "ConsoleApp1\LabsCSharp.Laba6.csproj", "{439EAEA3-722F-42F9-A6F3-94D792BE4505}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
