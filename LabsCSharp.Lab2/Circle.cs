@@ -12,9 +12,7 @@ namespace LabsCSharp.Lab2
                 throw new Exception();
         }
 
-        public double GetArea()
-        {
-            return 2 * Math.PI * Math.Pow(Radius, 2);
-        }
+        public double GetArea() => 2 * Math.PI * Math.Pow(Radius, 2);
+        
     }
 }
